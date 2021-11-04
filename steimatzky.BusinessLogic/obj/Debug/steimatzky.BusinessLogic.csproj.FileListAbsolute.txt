@@ -1,0 +1,13 @@
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\steimatzky.BusinessLogic.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\steimatzky.BusinessLogic.pdb
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\steimatzky.Data.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\steimatzky.Model.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\Newtonsoft.Json.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\steimatzky.Data.pdb
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\steimatzky.Model.pdb
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\bin\Debug\Newtonsoft.Json.xml
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\obj\Debug\steimatzky.BusinessLogic.csproj.AssemblyReference.cache
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\obj\Debug\steimatzky.BusinessLogic.csproj.CoreCompileInputs.cache
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\obj\Debug\steimatzky.BusinessLogic.csproj.CopyComplete
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\obj\Debug\steimatzky.BusinessLogic.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.BusinessLogic\obj\Debug\steimatzky.BusinessLogic.pdb

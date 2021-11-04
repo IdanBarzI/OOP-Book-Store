@@ -1,0 +1,457 @@
+﻿<Window x:Class="Steimatzky.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Steimatzky"
+        mc:Ignorable="d"
+        Title="StrimatzkyBookStore" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid x:Name="LoginGrid" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush ImageSource="E:\Study\C#\Projects\steimatzky\steimatzky\images\MainBG.jpg"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <Menu Grid.ColumnSpan="3" >
+                <MenuItem Header="_Options">
+                    <MenuItem Header="_Exit" Click="MenuExit_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\ExitIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Help" Click="MenuHelp_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BooksIcon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Login Screen" Click="GoToLoginGrid_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\LoginIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="Users" Header="_Users">
+                    <MenuItem x:Name="UsersManager" Header="_Manager" IsCheckable="True" IsChecked="True" />
+                    <MenuItem x:Name="UsersWorker" Header="_Worker" IsCheckable="True" IsChecked="False" />
+                </MenuItem>
+            </Menu>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Top">
+                <Label Background="AliceBlue" HorizontalAlignment="Left">Password:</Label>
+                <PasswordBox x:Name="Password" Height="25" PasswordChar="*" MaxLength="8"/>
+                <Button x:Name="Login" Width="100" Content="Login" Height="50" Click="Login_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="images/LoginIcon.png"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="ManagerDBSelect" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="E:\Study\C#\Projects\steimatzky\steimatzky\images\MainBG.jpg"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <Menu Grid.ColumnSpan="3" >
+                <MenuItem Header="_Options">
+                    <MenuItem Header="_Exit" Click="MenuExit_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\ExitIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Help" Click="MenuHelp_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BooksIcon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Login Screen" Click="GoToLoginGrid_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\LoginIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <StackPanel x:Name="DataTypesSP" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top">
+                <TextBlock Text="Select the data type you want" Background="AliceBlue" HorizontalAlignment="Center" />
+                <Button x:Name="BindingProducts" Width="150" Height="50" Click="BindingDB_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Binding Products" VerticalAlignment="Center"/>
+                        <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BindingDBIcon.png" Width="25"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="RemovedDB" Width="150" Height="50" Click="RemovedDB_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Removed Products"/>
+                        <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\RemovedDBIcon.png" Width="25"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="SoldDB" Width="150" Height="50" Click="SoldDB_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Sold Products" VerticalAlignment="Center"/>
+                        <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\SoldDBIcon.png" Width="40" VerticalAlignment="Center" Margin="-10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="AddingGrid" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="images/AddingBG.jpg" Opacity="0.75"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Menu Grid.ColumnSpan="3" >
+                <MenuItem Header="_Options">
+                    <MenuItem Header="_Exit" Click="MenuExit_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\ExitIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Help" Click="MenuHelp_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BooksIcon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Login Screen" Click="GoToLoginGrid_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\LoginIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Users">
+                    <MenuItem x:Name="UsersManagerAdding" Header="_Manager" IsCheckable="False" IsChecked="True"/>
+                    <MenuItem x:Name="UsersWorkerAdding" Header="_Worker" IsCheckable="False"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel Orientation="Horizontal" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Text="Name:" Height="25"/>
+                    <TextBlock Text="Author:" Height="25"/>
+                    <TextBlock Text="Quntity:" Height="25"/>
+                    <TextBlock Text="Price:" Height="25"/>
+                    <TextBlock Text="Id:" Height="25"/>
+                    <TextBlock Text="PrintDate:" Height="25"/>
+                    <TextBlock Text="Edition:" Margin="0,80,0,0" Height="25"/>
+                    <TextBlock Text="Summary:" Height="25"/>
+                </StackPanel>
+
+                <StackPanel Width="200" VerticalAlignment ="Top">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <TextBox x:Name="Name"/>
+                    <TextBox x:Name="Author"/>
+                    <TextBox x:Name="Quntity"/>
+                    <TextBox x:Name="Price"/>
+                    <TextBox x:Name="Id" IsEnabled="False"/>
+                    <DatePicker x:Name="PrintDate"/>
+                    <TextBox x:Name="Edition"/>
+                    <TextBox x:Name="Summary"/>
+                    <Button Width="200" x:Name="AddProduct" Click="AddProduct_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\AddBookIcon.png" Width="50" Height="50"/>
+                            <TextBlock Text="Add Product" FontSize="25" Margin="5"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Top">
+                    <ComboBox x:Name="ProductType" Text="Please Select Type" IsEditable="True" IsReadOnly="True" Height="50" SelectionChanged="comboBoxProductType_SelectionChanged">
+                        <ComboBoxItem Content="Book" TabIndex="0"/>
+                        <ComboBoxItem Content="Journal" />
+                        <ComboBoxItem Content="Item 3" />
+                    </ComboBox>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox Name="Genre" Text="Please Select Genres" IsEditable="True" IsTextSearchEnabled="True" StaysOpenOnEdit="True" Height="50" TextBoxBase.TextChanged="Gener_TextChanged" SelectionChanged="Genre_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox Name="chkGener" Width="220" Checked="AllCheckbocx_CheckedAndUnchecked" Unchecked="AllCheckbocx_CheckedAndUnchecked" Content="{Binding Genre_Name}" IsChecked="{Binding Check_Status}" CommandParameter="{Binding Genre_ID}">
+                                    </CheckBox>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <Button x:Name="GoToSearchGridbtn" Content="Go To Search" Width="auto" Height="75" FontSize="25" Click="GoToSearchGrid_Click"/>
+                </StackPanel>
+                <ListBox Name="genreListBox" Height="175"  Width="110" VerticalAlignment="Top" />
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="SearchGrid" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Menu Grid.ColumnSpan="3">
+                <MenuItem Header="_Options">
+                    <MenuItem Header="_Exit" Click="MenuExit_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\ExitIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Help" Click="MenuHelp_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BooksIcon.jpg" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Login Screen" Click="GoToLoginGrid_Click">
+                        <MenuItem.Icon>
+                            <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\LoginIcon.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Users">
+                    <MenuItem x:Name="UsersManagerSearch" Header="_Manager" IsCheckable="False"/>
+                    <MenuItem x:Name="UsersWorkerSearch" Header="_Worker" IsCheckable="False"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel Orientation="Horizontal" Height="25" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="1">
+                <TextBox x:Name="Search" Text="Search product..." Foreground="Black" Width="264" MouseEnter="Search_MouseEnter" VerticalAlignment="Top"/>
+                <Button x:Name="SearchBtn" Width="100" Height="Auto" FontSize="15" Click="SearchBtn_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Search       "></TextBlock>
+                        <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\FileSearchIcon-removebg-preview.png"  Height="20"/>
+                    </StackPanel>
+                </Button>
+                <ComboBox x:Name="SearchMethod" Text="Search By" IsEditable="True" IsReadOnly="True" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="SerchMethod_SelectionChanged">
+                    <ComboBoxItem Content="Name" TabIndex="0"/>
+                    <ComboBoxItem Content="id" />
+                    <ComboBoxItem Content="Price" />
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BooksIcon.jpg" Width="20" Height="20"/>
+                            <TextBlock Text="Book Categorys"/>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\JournalIcon.png" Width="20" Height="20"/>
+                            <TextBlock Text="Journal Categorys"/>
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <ComboBox x:Name="Categorys" Text="Please Select Category" IsEditable="True" IsReadOnly="True" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed">
+                </ComboBox>
+                <Button x:Name="BackToAddingGrid" Content="Back To Adding" Width="114" Height="25" FontSize="15" Click="BackToAddingGrid_Click"/>
+                <Button x:Name="GetAll" Content="Get All" Width="114" Height="25" FontSize="15" Click="GetAll_Click"/>
+            </StackPanel>
+            <ListView x:Name="Data" Grid.Row="2" Grid.ColumnSpan="3" BorderThickness ="3" SelectionChanged="Data_SelectionChanged">
+            <ListView.Background>
+                    <ImageBrush ImageSource="LoginBG.jpg" Opacity="0.5"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView >
+                        <GridViewColumn Header="Quntity To Delete">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Height="50">
+                                        <TextBox x:Name="QuntityToRemove" TextChanged="QuantityToRemove_TextChanged" Width="50"/>
+                                        <Button x:Name="DeleteQuntity" CommandParameter="{Binding}" Click="DeleteQuntity_Click" Height="auto" Width="auto">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\DeleteIcon.png" Width="auto" VerticalAlignment="Center"/>
+                                                <TextBlock Text="Delete&#x0a;quntity" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Delete">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <StackPanel Orientation="Horizontal" Height="50">
+                                        <Button x:Name="DeleteProduct" CommandParameter="{Binding}" Click="DeleteProductClick" Width="auto" Height="auto">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\DeleteIcon.png" Width="auto" VerticalAlignment="Center"/>
+                                                <TextBlock Text="Delete&#x0a;Product" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Sell">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="SellProduct" CommandParameter="{Binding}" Click="SellProduct_Click" Height="50" Width="auto">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\SellIcon.png" Width="auto" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Sell&#x0a;Product" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Results"/>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Null}">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Button Content="↑" Height="25" Width="auto" FontSize="15" Click="Asc_Click"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Null}">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <Button Content="↓" Height="25" Width="auto" FontSize="15" Click="Desc_Click"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="Sorting" Width="150" DisplayMemberBinding="{Binding Null}">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <ComboBox x:Name="SortMethod" Text="Sort By" IsEditable="True" IsReadOnly="True" Height="25" SelectionChanged="SortMethod_SelectionChanged">
+                                        <ComboBoxItem Content="Name" TabIndex="0" />
+                                        <ComboBoxItem Content="id" />
+                                        <ComboBoxItem Content="Price" />
+                                    </ComboBox>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid x:Name="EditGrid" Visibility="Collapsed">
+            <Grid.Background>
+                <ImageBrush ImageSource="images/MainBG.jpg" Opacity="0.5"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Menu Grid.ColumnSpan="3">
+                    <MenuItem Header="_Options">
+                        <MenuItem Header="_Exit" Click="MenuExit_Click">
+                            <MenuItem.Icon>
+                                <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\ExitIcon.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Help" Click="MenuHelp_Click">
+                            <MenuItem.Icon>
+                                <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\BooksIcon.jpg" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Login Screen" Click="GoToLoginGrid_Click">
+                            <MenuItem.Icon>
+                                <Image Width="20" Height="20" Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\LoginIcon.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="_Users">
+                        <MenuItem x:Name="UsersManagerEdit" Header="_Manager" IsCheckable="False" IsChecked="true"/>
+                        <MenuItem x:Name="UsersWorkerEdit" Header="_Worker" IsCheckable="False"/>
+                    </MenuItem>
+                </Menu>
+            <StackPanel Orientation="Horizontal" Grid.RowSpan="2" Grid.ColumnSpan="1" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Text="Name:" Height="25"/>
+                    <TextBlock Text="Author:" Height="25"/>
+                    <TextBlock Text="Quntity:" Height="25"/>
+                    <TextBlock Text="Price:" Height="25"/>
+                    <TextBlock Text="Id:" Height="25"/>
+                    <TextBlock Text="PrintDate:" Height="25"/>
+                    <TextBlock Text="Edition:" Margin="0,80,0,0" Height="25"/>
+                    <TextBlock Text="Summary:" Height="25"/>
+                </StackPanel>
+
+                <StackPanel Width="200" VerticalAlignment ="Top">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <TextBox x:Name="EditName"/>
+                    <TextBox x:Name="EditAuthor"/>
+                    <TextBox x:Name="EditQuntity"/>
+                    <TextBox x:Name="EditPrice"/>
+                    <TextBox x:Name="EditId" IsReadOnly="True"/>
+                    <DatePicker x:Name="EditPrintDate"/>
+                    <TextBox x:Name="EditEdition"/>
+                    <TextBox x:Name="EditSummary"/>
+                    <Button Width="200" x:Name="EditProduct" Click="EditProduct_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="E:\Study\C#\Projects\steimatzky\steimatzky\images\SaveUpdateIcon.png" Width="50" Height="50"/>
+                            <TextBlock Text="Save" FontSize="25" Margin="5"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.RowSpan="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="1">
+                <StackPanel Orientation="Vertical" HorizontalAlignment ="Left" VerticalAlignment="Top">
+
+                    <ComboBox x:Name="EditProductType" IsEditable="False" IsReadOnly="True" IsEnabled="False" Height="50">
+                        <ComboBoxItem Content="Book" TabIndex="0"/>
+                        <ComboBoxItem Content="Journal" />
+                        <ComboBoxItem Content="Item 3" />
+                    </ComboBox>
+                    <ComboBox Name="editGenre" Text="Please Select Genre" IsEditable="True" IsTextSearchEnabled="True" StaysOpenOnEdit="True" Height="50" TextBoxBase.TextChanged="EditGener_TextChanged" SelectionChanged="EditGenre_SelectionChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Name="chkGener" Width="220" Checked="EditAllCheckbocx_CheckedAndUnchecked" Unchecked="EditAllCheckbocx_CheckedAndUnchecked" Content="{Binding Genre_Name}" IsChecked="{Binding Check_Status}" CommandParameter="{Binding Genre_ID}">
+                                </CheckBox>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <ListBox Name="GenreEditListBox" Height="200"  Width="300" VerticalAlignment="Top" />
+                    <Button x:Name="GoToSearchGridFromEditbtn" Content="Go To Search" Width="200" Height="100" FontSize="25" Click="GoToSearchGrid_Click"/>
+                </StackPanel>
+            </StackPanel>
+                
+        </Grid>
+        </Grid>
+</Window>

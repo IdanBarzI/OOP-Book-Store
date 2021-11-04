@@ -1,0 +1,11 @@
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\bin\Debug\steimatzky.Data.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\bin\Debug\steimatzky.Data.pdb
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\bin\Debug\Newtonsoft.Json.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\bin\Debug\steimatzky.Model.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\bin\Debug\steimatzky.Model.pdb
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\bin\Debug\Newtonsoft.Json.xml
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\obj\Debug\steimatzky.Data.csproj.AssemblyReference.cache
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\obj\Debug\steimatzky.Data.csproj.CoreCompileInputs.cache
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\obj\Debug\steimatzky.Data.csproj.CopyComplete
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\obj\Debug\steimatzky.Data.dll
+E:\VS\C#\MICHAL\IdanBookStore\steimatzky\steimatzky.Data\obj\Debug\steimatzky.Data.pdb
